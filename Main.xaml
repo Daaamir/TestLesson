@@ -1,0 +1,337 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="836.8,3355.2" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="24">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="17">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="847.2,3150.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="Казань" Name="City" />
+      <Variable x:TypeArguments="x:String" Name="Get_City" />
+      <Variable x:TypeArguments="x:String" Name="Book" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+      <Variable x:TypeArguments="x:String" Name="Author" />
+      <Variable x:TypeArguments="x:String" Name="str_JSONForm" />
+      <Variable x:TypeArguments="x:String" Name="str_SelButton" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ufa:FormActivity Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormTitle="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" DisableMaximizeButton="False" DisableMinimizeButton="False" DisplayName="Create Form" FormFieldsOutputData="[str_JSONForm]" FormHeight="400" FormSchema="%[{&quot;label&quot;:&quot;Author&quot;,&quot;labelPosition&quot;:&quot;top&quot;,&quot;placeholder&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;suffix&quot;:&quot;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;input&quot;},&quot;inputMask&quot;:&quot;&quot;,&quot;hidden&quot;:false,&quot;hideLabel&quot;:false,&quot;showWordCount&quot;:false,&quot;showCharCount&quot;:false,&quot;disabled&quot;:false,&quot;tableView&quot;:true,&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:true,&quot;pattern&quot;:&quot;&quot;,&quot;customMessage&quot;:&quot;&quot;,&quot;minLength&quot;:&quot;&quot;,&quot;maxLength&quot;:&quot;&quot;,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;errorLabel&quot;:&quot;&quot;,&quot;key&quot;:&quot;autor&quot;,&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;calculateServer&quot;:false,&quot;spellcheck&quot;:true,&quot;customClass&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:true,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;modalEdit&quot;:false,&quot;tooltip&quot;:&quot;&quot;,&quot;tabindex&quot;:&quot;&quot;,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;attributes&quot;:{},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;mask&quot;:false,&quot;inputType&quot;:&quot;text&quot;,&quot;inputFormat&quot;:&quot;plain&quot;,&quot;id&quot;:&quot;eyrlchv&quot;,&quot;defaultValue&quot;:&quot;&quot;},{&quot;label&quot;:&quot;City&quot;,&quot;labelPosition&quot;:&quot;top&quot;,&quot;placeholder&quot;:&quot;&quot;,&quot;description&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;suffix&quot;:&quot;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;input&quot;},&quot;inputMask&quot;:&quot;&quot;,&quot;hidden&quot;:false,&quot;hideLabel&quot;:false,&quot;showWordCount&quot;:false,&quot;showCharCount&quot;:false,&quot;disabled&quot;:false,&quot;tableView&quot;:true,&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:true,&quot;pattern&quot;:&quot;&quot;,&quot;customMessage&quot;:&quot;&quot;,&quot;minLength&quot;:&quot;&quot;,&quot;maxLength&quot;:&quot;&quot;,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;errorLabel&quot;:&quot;&quot;,&quot;key&quot;:&quot;city&quot;,&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;customClass&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:true,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;modalEdit&quot;:false,&quot;tooltip&quot;:&quot;&quot;,&quot;tabindex&quot;:&quot;&quot;,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;attributes&quot;:{},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;mask&quot;:false,&quot;inputType&quot;:&quot;text&quot;,&quot;inputFormat&quot;:&quot;plain&quot;,&quot;id&quot;:&quot;ehnkjto&quot;,&quot;defaultValue&quot;:&quot;&quot;,&quot;calculateServer&quot;:false,&quot;spellcheck&quot;:true},{&quot;label&quot;:&quot;Book&quot;,&quot;tableView&quot;:true,&quot;validate&quot;:{&quot;required&quot;:true,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false,&quot;minLength&quot;:&quot;&quot;,&quot;maxLength&quot;:&quot;&quot;,&quot;pattern&quot;:&quot;&quot;},&quot;key&quot;:&quot;book&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true,&quot;calculateServer&quot;:false,&quot;spellcheck&quot;:true,&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;suffix&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;defaultValue&quot;:null,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:true,&quot;hidden&quot;:false,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;modalEdit&quot;:false,&quot;labelPosition&quot;:&quot;top&quot;,&quot;description&quot;:&quot;&quot;,&quot;errorLabel&quot;:&quot;&quot;,&quot;tooltip&quot;:&quot;&quot;,&quot;hideLabel&quot;:false,&quot;tabindex&quot;:&quot;&quot;,&quot;disabled&quot;:false,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;input&quot;},&quot;attributes&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;mask&quot;:false,&quot;inputType&quot;:&quot;text&quot;,&quot;inputFormat&quot;:&quot;plain&quot;,&quot;inputMask&quot;:&quot;&quot;,&quot;id&quot;:&quot;e5dp6dq&quot;},{&quot;type&quot;:&quot;button&quot;,&quot;label&quot;:&quot;Submit&quot;,&quot;key&quot;:&quot;submit&quot;,&quot;size&quot;:&quot;md&quot;,&quot;block&quot;:false,&quot;action&quot;:&quot;submit&quot;,&quot;disableOnInvalid&quot;:true,&quot;theme&quot;:&quot;primary&quot;,&quot;input&quot;:true,&quot;placeholder&quot;:&quot;&quot;,&quot;prefix&quot;:&quot;&quot;,&quot;customClass&quot;:&quot;&quot;,&quot;suffix&quot;:&quot;&quot;,&quot;multiple&quot;:false,&quot;defaultValue&quot;:null,&quot;protected&quot;:false,&quot;unique&quot;:false,&quot;persistent&quot;:false,&quot;hidden&quot;:false,&quot;clearOnHide&quot;:true,&quot;refreshOn&quot;:&quot;&quot;,&quot;redrawOn&quot;:&quot;&quot;,&quot;tableView&quot;:false,&quot;modalEdit&quot;:false,&quot;labelPosition&quot;:&quot;top&quot;,&quot;description&quot;:&quot;&quot;,&quot;errorLabel&quot;:&quot;&quot;,&quot;tooltip&quot;:&quot;&quot;,&quot;hideLabel&quot;:false,&quot;tabindex&quot;:&quot;&quot;,&quot;disabled&quot;:false,&quot;autofocus&quot;:false,&quot;dbIndex&quot;:false,&quot;customDefaultValue&quot;:&quot;&quot;,&quot;calculateValue&quot;:&quot;&quot;,&quot;widget&quot;:{&quot;type&quot;:&quot;input&quot;},&quot;attributes&quot;:{},&quot;validateOn&quot;:&quot;change&quot;,&quot;validate&quot;:{&quot;required&quot;:false,&quot;custom&quot;:&quot;&quot;,&quot;customPrivate&quot;:false,&quot;strictDateValidation&quot;:false,&quot;multiple&quot;:false,&quot;unique&quot;:false},&quot;conditional&quot;:{&quot;show&quot;:null,&quot;when&quot;:null,&quot;eq&quot;:&quot;&quot;},&quot;overlay&quot;:{&quot;style&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;top&quot;:&quot;&quot;,&quot;width&quot;:&quot;&quot;,&quot;height&quot;:&quot;&quot;},&quot;allowCalculateOverride&quot;:false,&quot;encrypted&quot;:false,&quot;showCharCount&quot;:false,&quot;showWordCount&quot;:false,&quot;properties&quot;:{},&quot;allowMultipleMasks&quot;:false,&quot;leftIcon&quot;:&quot;&quot;,&quot;rightIcon&quot;:&quot;&quot;,&quot;dataGridLabel&quot;:true,&quot;id&quot;:&quot;e0t9ci&quot;,&quot;calculateServer&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="800" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="805.6,723.2" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="False" SelectedButton="[str_SelButton]">
+      <ufa:FormActivity.Body>
+        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="768.8,596.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If Condition="[str_SelButton.Equals(&quot;submit&quot;)]" sap:VirtualizedContainerService.HintSize="727.2,504" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="379.2,354.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="njl:JObject" Name="json_JSONForm" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="337.6,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[json_JSONForm]" JsonString="[str_JSONForm]" />
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="337.6,161.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[City]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[json_JSONForm.SelectToken("city").ToString]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[Author]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[json_JSONForm.SelectToken("autor").ToString]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[Book]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[json_JSONForm.SelectToken("book").ToString]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,352.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[City]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">Казань</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Book]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">Гарри Поттер</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Author]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">Роулинг Дж.</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </ActivityAction>
+      </ufa:FormActivity.Body>
+      <ufa:FormActivity.DelayBody>
+        <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+          <Delay Duration="00:00:00.2500000" sap2010:WorkflowViewState.IdRef="Delay_1" />
+        </ActivityAction>
+      </ufa:FormActivity.DelayBody>
+      <ufa:FormActivity.FormFieldsCollection>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ufa:FormActivity.FormFieldsCollection>
+    </ufa:FormActivity>
+    <Assign sap:VirtualizedContainerService.HintSize="805.6,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[City]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Казань</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="805.6,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Book]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Гарри Поттер</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="805.6,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[Author]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">Роулинг Дж.</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'BUTTON  city'" sap:VirtualizedContainerService.HintSize="805.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_1">
+      <ui:GetValue.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b0e673fe-6dcb-4624-908e-5311bff50ca3" InformativeScreenshot="0b4099a0d09d4e55c5d18c37cae66527" Selector="&lt;html app='chrome.exe' url='https://www.chitai-gorod.ru*' /&gt;&lt;webctrl id='city' tag='BUTTON' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:GetValue.Target>
+      <ui:GetValue.Value>
+        <OutArgument x:TypeArguments="x:String">[Get_City]</OutArgument>
+      </ui:GetValue.Value>
+    </ui:GetValue>
+    <If Condition="[Get_City IsNot City]" sap:VirtualizedContainerService.HintSize="805.6,966.4" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="433.6,816.8" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="8bcf4a96128f03c806364d72ed983a01" Selector="&lt;html app='chrome.exe' url='https://www.chitai-gorod.ru*' /&gt;">
+          <ui:BrowserScope.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,669.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  city'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition OffsetX="29" OffsetY="15" Position="TopLeft" />
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="480ec6b0-9052-490b-93b5-9dd2ca78f5b7" InformativeScreenshot="0b4099a0d09d4e55c5d18c37cae66527" Selector="&lt;webctrl id='city' tag='BUTTON' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  cityChange'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition OffsetX="25" OffsetY="15" Position="TopLeft" />
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="074e117e-6e3c-4061-8341-ca0e59e03889" InformativeScreenshot="f7676e595e1894e89720de8f05e757e8" Selector="&lt;webctrl id='cityChange' tag='A' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  citySearch'" EmptyField="True" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[City]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="09b3efcb-66ee-4e76-a9af-020255497954" InformativeScreenshot="195cd8bc8098d03ae38192eb7c927a89" Selector="&lt;webctrl id='citySearch' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'LI'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition OffsetX="173" OffsetY="18" Position="TopLeft" />
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="af5dd019-651c-4402-8dc4-deca54d6687f" InformativeScreenshot="50dfd52e6dad55f265d080f39309edd3" Selector="&lt;webctrl idx='1' isleaf='1' tag='LI' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+              </Sequence>
+            </ActivityAction>
+          </ui:BrowserScope.Body>
+        </ui:BrowserScope>
+      </If.Then>
+    </If>
+    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT'" EmptyField="True" sap:VirtualizedContainerService.HintSize="805.6,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[Book+ &quot;[k(enter)]&quot;]">
+      <ui:TypeInto.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f6368554-b07d-4878-8482-1ba9917b922e" InformativeScreenshot="44a309c921ab6810c99d08a7ce84c876" Selector="&lt;html app='chrome.exe' url='https://www.chitai-gorod.ru*' /&gt;&lt;webctrl name='q' tag='INPUT' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:TypeInto.Target>
+    </ui:TypeInto>
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser '          Page'" sap:VirtualizedContainerService.HintSize="805.6,347.2" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="228d0101c0ce697f6bcab943a4cb9cc1" Selector="&lt;html app='chrome.exe' url='https://www.chitai-gorod.ru*' /&gt;">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,200" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Structured Data 'MAIN'" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' class='catalog' idx='1'/&gt;&lt;webctrl tag='div' class='container' idx='1'/&gt;&lt;webctrl tag='div' class='content' idx='1'/&gt;&lt;webctrl tag='div' class='container_cards container_cards-product' idx='1'/&gt;&lt;webctrl tag='div' class='product-card js_product js__product_card'/&gt;&lt;webctrl tag='div' class='product-card__info' idx='1'/&gt;&lt;/row&gt;&lt;column exact='1' name='Name' attr='text' name2='Link' attr2='href'&gt;&lt;webctrl tag='div' class='catalog' idx='1'/&gt;&lt;webctrl tag='div' class='container' idx='1'/&gt;&lt;webctrl tag='div' class='content' idx='1'/&gt;&lt;webctrl tag='div' class='container_cards container_cards-product' idx='1'/&gt;&lt;webctrl tag='div' class='product-card js_product js__product_card'/&gt;&lt;webctrl tag='div' class='product-card__info' idx='1'/&gt;&lt;webctrl tag='a' class='product-card__link js-watch-productlink' idx='1'/&gt;&lt;webctrl tag='div' class='product-card__title js-analytic-product-title' idx='1'/&gt;&lt;/column&gt;&lt;column exact='1' name='Price' attr='text'&gt;&lt;webctrl tag='div' class='catalog' idx='1'/&gt;&lt;webctrl tag='div' class='container' idx='1'/&gt;&lt;webctrl tag='div' class='content' idx='1'/&gt;&lt;webctrl tag='div' class='container_cards container_cards-product' idx='1'/&gt;&lt;webctrl tag='div' class='product-card js_product js__product_card'/&gt;&lt;webctrl tag='div' class='product-card__info' idx='1'/&gt;&lt;webctrl tag='div' class='product-card__footer' idx='1'/&gt;&lt;webctrl tag='div' class='product-card__price' idx='1'/&gt;&lt;webctrl tag='span' class='price' idx='1'/&gt;&lt;/column&gt;&lt;column exact='1' name='Author' attr='text'&gt;&lt;webctrl tag='div' class='catalog' idx='1'/&gt;&lt;webctrl tag='div' class='container' idx='1'/&gt;&lt;webctrl tag='div' class='content' idx='1'/&gt;&lt;webctrl tag='div' class='container_cards container_cards-product' idx='1'/&gt;&lt;webctrl tag='div' class='product-card js_product js__product_card'/&gt;&lt;webctrl tag='div' class='product-card__info' idx='1'/&gt;&lt;webctrl tag='a' class='product-card__link js-watch-productlink' idx='1'/&gt;&lt;webctrl tag='div' class='product-card__author' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" NextLinkSelector="&lt;webctrl aaname='keyboard_arrow_right' tag='A' /&gt;" SimulateClick="True">
+              <ui:ExtractData.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2d1b7578-62ea-4242-9fab-fbddecf251c7" InformativeScreenshot="723f53721a97df1408f242f4cfe36a86" Selector="&lt;webctrl tag='MAIN' /&gt;" WaitForReady="COMPLETE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:ExtractData.Target>
+            </ui:ExtractData>
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+    </ui:BrowserScope>
+    <ui:FilterDataTable DataTable="[ExtractDataTable]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="805.6,60" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[ExtractDataTable]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:String">["Author"]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">[Author]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:String">["Name"]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">["узник"]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <x:Null />
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+    </ui:FilterDataTable>
+    <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="Price" DataTable="[ExtractDataTable]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="805.6,22.4" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[ExtractDataTable]" SortOrder="Ascending" />
+    <ui:WriteRange AddHeaders="True" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="805.6,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="C:\Users\AlekbaevD\Desktop\Lesson1.xlsx" />
+  </Sequence>
+</Activity>
